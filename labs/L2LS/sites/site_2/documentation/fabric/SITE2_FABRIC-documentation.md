@@ -12,6 +12,10 @@
   - [Loopback0 Interfaces Node Allocation](#loopback0-interfaces-node-allocation)
   - [VTEP Loopback VXLAN Tunnel Source Interfaces (VTEPs Only)](#vtep-loopback-vxlan-tunnel-source-interfaces-vteps-only)
   - [VTEP Loopback Node allocation](#vtep-loopback-node-allocation)
+- [Connected Endpoints](#connected-endpoints)
+  - [Connected Endpoint Keys](#connected-endpoint-keys)
+  - [Servers](#servers)
+  - [Port Profiles](#port-profiles)
 
 ## Fabric Switches and Management IP
 
@@ -84,3 +88,27 @@
 
 | POD | Node | Loopback1 |
 | --- | ---- | --------- |
+
+## Connected Endpoints
+
+### Connected Endpoint Keys
+
+| Key | Type | Description |
+| --- | ---- | ----------- |
+| servers | server | Server |
+
+### Servers
+
+| Name | Port | Fabric Device | Fabric Port | Description | Shutdown | Mode | Access VLAN | Trunk Allowed VLANs | Profile |
+| ---- | ---- | ------------- | ------------| ----------- | -------- | ---- | ----------- | ------------------- | ------- |
+| s2-host1 | eth1 | s2-leaf1 | Ethernet4 | SERVER_s2-host1_eth1 | False | access | 30 | - | PP-VLAN30 |
+| s2-host1 | eth2 | s2-leaf2 | Ethernet4 | SERVER_s2-host1_eth2 | False | access | 30 | - | PP-VLAN30 |
+| s2-host2 | eth1 | s2-leaf3 | Ethernet4 | SERVER_s2-host2_eth1 | False | access | 40 | - | PP-VLAN40 |
+| s2-host2 | eth2 | s2-leaf4 | Ethernet4 | SERVER_s2-host2_eth2 | False | access | 40 | - | PP-VLAN40 |
+
+### Port Profiles
+
+| Profile Name | Parent Profile |
+| ------------ | -------------- |
+| PP-VLAN30 | - |
+| PP-VLAN40 | - |
