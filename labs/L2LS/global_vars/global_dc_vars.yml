@@ -38,7 +38,6 @@ aaa_settings:
       privilege: 15
       role: network-admin
       sha512_password: "{{ ansible_password | password_hash('sha512', salt='arista', rounds=5000) }}"
-      ssh_key: "{{ lookup('ansible.builtin.file', '~/.ssh/id_rsa.pub') }}"
 
 # OOB Management network default gateway.
 mgmt_gateway: 192.168.0.1
@@ -59,3 +58,9 @@ dns_settings:
 
 # Point to Point Links MTU Override for Lab
 p2p_uplinks_mtu: 1500
+
+eos_designs_documentation:
+
+  # Include connected endpoints in the fabric-wide documentation.
+  # This is `false` by default to avoid cluttering documentation for projects with thousands of endpoints.
+  connected_endpoints: true
